@@ -68,6 +68,7 @@ function ShareFile({ onToast }) {
             const blob = new Blob([encrpted]);
 
             const encryptedFileName = await encryptMessageSymmetric(password, file.name);
+            onToast('Uploading...');
             const { data } = await getUploadUrl(encryptedFileName, file.type);
             if (!data) {
               onToast('Something went wrong, please try again.', toastTypes.critical);

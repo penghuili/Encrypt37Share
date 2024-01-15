@@ -9,7 +9,7 @@ import Spacer from '../shared/react-pure/Spacer';
 import AppBar from '../shared/react/AppBar';
 import { fetchResponseToUnit8Array } from '../shared/react/file';
 
-function ShareFile({ fileId }) {
+function ShareFile({ fileId, onToast }) {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +40,7 @@ function ShareFile({ fileId }) {
       <AppBar title="Download shared file" isLoading={isLoading} />
       <ContentWrapper>
         <PasswordInput
-          label="Password"
+          label="Password to decrypt the file"
           value={password}
           onChange={p => {
             setErrorMessage(null);
@@ -77,6 +77,7 @@ function ShareFile({ fileId }) {
                   const decryptedFile = await decryptFile(unit8Array, password);
                   const blob = new Blob([decryptedFile], { type: fileMeta.mimeType });
                   window.saveAs(blob, fileName);
+                  onToast('Downloaded!');
                 } catch (error) {
                   setErrorMessage('Something went wrong, please try again.');
                 }
