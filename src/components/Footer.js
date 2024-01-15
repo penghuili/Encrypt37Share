@@ -18,6 +18,9 @@ function Footer() {
       </Text>
 
       <Spacer />
+      <Anchor href="https://encrypt37.com/share/" target="_blank">
+        Learn more
+      </Anchor>
       <Anchor href="https://github.com/penghuili/Encrypt37Share" target="_blank">
         Source code
       </Anchor>
