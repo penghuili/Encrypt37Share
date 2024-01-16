@@ -9,7 +9,7 @@ function Footer() {
     <ContentWrapper>
       <Divider />
       <Spacer />
-      <Text weight="bold">Share files encrypted and easily.</Text>
+      <Text weight="bold">Share files encrypted, easily and free.</Text>
       <Text weight="bold">Open source, no account needed, no tracking and free forever.</Text>
       <Text>
         Encrypt37Share uses the famously{' '}
