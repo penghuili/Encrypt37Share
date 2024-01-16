@@ -2,7 +2,7 @@ import { Anchor, Button, Text } from 'grommet';
 import React, { useEffect, useState } from 'react';
 import { RiLockUnlockLine } from 'react-icons/ri';
 import { fetchFile } from '../shareFileNetwork';
-import { decryptFile, decryptMessageSymmetric } from '../shared/js/encryption';
+import { decryptFileSymmetric, decryptMessageSymmetric } from '../shared/js/encryption';
 import ContentWrapper from '../shared/react-pure/ContentWrapper';
 import Divider from '../shared/react-pure/Divider';
 import PasswordInput from '../shared/react-pure/PasswordInput';
@@ -75,7 +75,7 @@ function ShareFile({ fileId, onToast }) {
                   const link = `https://static.peng37.com/sharefile/${fileId}.e37`;
                   const response = await fetch(link);
                   const unit8Array = await fetchResponseToUnit8Array(response);
-                  const decryptedFile = await decryptFile(unit8Array, password);
+                  const decryptedFile = await decryptFileSymmetric(password, unit8Array);
                   const blob = new Blob([decryptedFile], { type: fileMeta.mimeType });
                   window.saveAs(blob, fileName);
                   onToast('Downloaded!');
