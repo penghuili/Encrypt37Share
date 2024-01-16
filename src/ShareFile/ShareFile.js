@@ -4,7 +4,7 @@ import { RiFileCopyLine, RiLockLine } from 'react-icons/ri';
 import Beer from '../components/Beer';
 import { getUploadUrl, uploadFile } from '../shareFileNetwork';
 import { formatDateWeekTime } from '../shared/js/date';
-import { encryptFile, encryptMessageSymmetric } from '../shared/js/encryption';
+import { encryptFileSymmetric, encryptMessageSymmetric } from '../shared/js/encryption';
 import ContentWrapper from '../shared/react-pure/ContentWrapper';
 import PasswordInput from '../shared/react-pure/PasswordInput';
 import Spacer from '../shared/react-pure/Spacer';
@@ -64,7 +64,7 @@ function ShareFile({ onToast }) {
             onToast('Encrypting and uploading ...');
             setIsSharing(true);
             const unit8Array = await inputFileToUnit8Array(file);
-            const encrpted = await encryptFile(unit8Array, password);
+            const encrpted = await encryptFileSymmetric(password, unit8Array);
             const blob = new Blob([encrpted]);
 
             const encryptedFileName = await encryptMessageSymmetric(password, file.name);
