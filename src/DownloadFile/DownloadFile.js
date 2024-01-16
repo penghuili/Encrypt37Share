@@ -1,9 +1,10 @@
-import { Button, Text } from 'grommet';
+import { Anchor, Button, Text } from 'grommet';
 import React, { useEffect, useState } from 'react';
 import { RiLockUnlockLine } from 'react-icons/ri';
 import { fetchFile } from '../shareFileNetwork';
 import { decryptFile, decryptMessageSymmetric } from '../shared/js/encryption';
 import ContentWrapper from '../shared/react-pure/ContentWrapper';
+import Divider from '../shared/react-pure/Divider';
 import PasswordInput from '../shared/react-pure/PasswordInput';
 import Spacer from '../shared/react-pure/Spacer';
 import AppBar from '../shared/react/AppBar';
@@ -89,6 +90,13 @@ function ShareFile({ fileId, onToast }) {
             />
           </>
         )}
+
+        <Spacer size="3rem" />
+        <Divider />
+        <Spacer />
+        <Anchor href="https://share.encrypt37.com/" target="_blank">
+          Share <Text weight="bold">YOUR</Text> file
+        </Anchor>
       </ContentWrapper>
     </>
   );
