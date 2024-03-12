@@ -14,7 +14,7 @@ import store from './store';
 
 initShared({
   logo: 'https://static.peng37.com/faviconapi/52190fe8-4549-4a16-b25b-3b42954128bc/4b8f8deee4a50fa57fb4d354e8e21f2e/icon-192.png',
-  app: apps.sharefile.name,
+  app: apps.Encrypt37Share.name,
   encryptionUrl: 'https://encrypt37.com/encryption/',
   privacyUrl: 'https://encrypt37.com/privacy/',
   termsUrl: 'https://encrypt37.com/terms/',
@@ -24,7 +24,7 @@ initShared({
 setHook('location', useLocation);
 setHook('dispatch', useDispatch);
 
-const theme = createTheme(apps.sharefile.color);
+const theme = createTheme(apps.Encrypt37Share.color);
 
 function getFileId() {
   const pathname = window.location.pathname;
